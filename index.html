@@ -1,153 +1,81 @@
 <!DOCTYPE html>
-<html lang="sq">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cloud Lab</title>
+  <title>Add Two Numbers</title>
 
   <style>
     body {
       font-family: Arial, sans-serif;
+      background-color: #eef4ff;
       margin: 0;
-      padding: 30px 18px;
-      background: #eef4ff;
-      color: #172554;
-      transition: 0.3s;
+      padding: 40px 15px;
     }
 
-    .faqja {
-      max-width: 900px;
-      margin: auto;
-    }
-
-    header {
-      text-align: center;
+    .calculator {
+      max-width: 400px;
+      margin: 50px auto;
       padding: 25px;
-    }
-
-    h1 {
-      color: #2563eb;
-      font-size: 38px;
-    }
-
-    .buton {
-      border: 0;
-      border-radius: 9px;
-      padding: 12px 18px;
-      margin: 6px;
-      background: #2563eb;
-      color: white;
-      cursor: pointer;
-      font-size: 15px;
-    }
-
-    .kartat {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 15px;
-      margin: 25px 0;
-    }
-
-    .karta {
-      background: white;
-      padding: 20px;
-      border-radius: 14px;
-      box-shadow: 0 4px 14px #0002;
-    }
-
-    .ikona {
-      font-size: 35px;
-    }
-
-    .seksioni {
-      background: white;
-      padding: 22px;
-      margin-top: 20px;
-      border-radius: 14px;
+      background-color: white;
+      border-radius: 12px;
       text-align: center;
+      box-shadow: 0 4px 12px #0002;
     }
 
-    #mesazhi {
-      line-height: 1.7;
+    input {
+      width: 80%;
+      padding: 12px;
+      margin: 8px 0;
+      border: 1px solid #aaa;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 10px 22px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 6px;
+      background-color: #2563eb;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #1d4ed8;
+    }
+
+    #result {
+      font-size: 20px;
       font-weight: bold;
-    }
-
-    body.dark {
-      background: #111827;
-      color: #f9fafb;
-    }
-
-    body.dark .karta,
-    body.dark .seksioni {
-      background: #1f2937;
-      color: #f9fafb;
-    }
-
-    @media (max-width: 650px) {
-      .kartat {
-        grid-template-columns: 1fr;
-      }
-
-      h1 {
-        font-size: 30px;
-      }
+      color: #172554;
     }
   </style>
 </head>
 
 <body>
-  <main class="faqja">
-    <header>
- 
-      <h1>Përshëndetje nga faqja ime!</h1>
-      <p>Kjo faqe është publikuar në internet me GitHub Pages.</p>
+  <div class="calculator">
+    <h1>Add Two Numbers</h1>
 
-      <button class="buton" onclick="ndryshoPamjen()">
-        Ndrysho pamjen
-      </button>
-    </header>
+    <input id="number1" type="number" placeholder="Enter the first number">
+    <input id="number2" type="number" placeholder="Enter the second number">
 
+    <br>
 
+    <button onclick="addNumbers()">+</button>
 
-    <section class="kartat">
-      <article class="karta">
-        <h3>Compute</h3>
-        <p>Ekzekutimi i aplikacioneve dhe programeve në kompjuterë të largët.</p>
-      </article>
-
-      <article class="karta">
-        <h3>Storage</h3>
-        <p>Ruajtja e skedarëve dhe të dhënave në internet.</p>
-      </article>
-
-      <article class="karta">
-         <h3>Networking</h3>
-        <p>Lidhja e përdoruesve dhe shërbimeve përmes rrjetit.</p>
-      </article>
-    </section>
-
-    <section class="seksioni">
-      <h2>Çfarë ndodh kur dikush hap faqen?</h2>
-      <p>Kliko butonin për ta parë rrjedhën e thjeshtuar.</p>
-
-      <button class="buton" onclick="shfaqRrjedhen()">
-        Shfaq rrjedhën
-      </button>
-
-      <p id="mesazhi"></p>
-    </section>
-  </main>
+    <p id="result"></p>
+  </div>
 
   <script>
-    function ndryshoPamjen() {
-      document.body.classList.toggle("dark");
-    }
+    function addNumbers() {
+      const number1 = Number(document.getElementById("number1").value);
+      const number2 = Number(document.getElementById("number2").value);
+      const sum = number1 + number2;
 
-    function shfaqRrjedhen() {
-      document.getElementById("mesazhi").textContent =
-        "1. Vizitori hap adresën e faqes. " +
-        "2. GitHub Pages e gjen skedarin index.html. " +
-        "3. Faqja dërgohet te shfletuesi i vizitorit.";
+      document.getElementById("result").textContent = "Result: " + sum;
     }
   </script>
 </body>
