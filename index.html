@@ -1,55 +1,157 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sq">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My First Cloud Page</title>
+  <title>Cloud Lab</title>
 
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #eaf2ff;
-      text-align: center;
-      padding: 50px;
+      margin: 0;
+      padding: 30px 18px;
+      background: #eef4ff;
+      color: #172554;
+      transition: 0.3s;
     }
 
-    main {
-      background: white;
-      max-width: 600px;
+    .faqja {
+      max-width: 900px;
       margin: auto;
-      padding: 30px;
-      border-radius: 15px;
+    }
+
+    header {
+      text-align: center;
+      padding: 25px;
     }
 
     h1 {
-      color: #174ea6;
+      color: #2563eb;
+      font-size: 38px;
     }
 
-    button {
-      padding: 10px 18px;
-      background-color: #174ea6;
-      color: white;
+    .buton {
       border: 0;
-      border-radius: 8px;
+      border-radius: 9px;
+      padding: 12px 18px;
+      margin: 6px;
+      background: #2563eb;
+      color: white;
       cursor: pointer;
+      font-size: 15px;
+    }
+
+    .kartat {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin: 25px 0;
+    }
+
+    .karta {
+      background: white;
+      padding: 20px;
+      border-radius: 14px;
+      box-shadow: 0 4px 14px #0002;
+    }
+
+    .ikona {
+      font-size: 35px;
+    }
+
+    .seksioni {
+      background: white;
+      padding: 22px;
+      margin-top: 20px;
+      border-radius: 14px;
+      text-align: center;
+    }
+
+    #mesazhi {
+      line-height: 1.7;
+      font-weight: bold;
+    }
+
+    body.dark {
+      background: #111827;
+      color: #f9fafb;
+    }
+
+    body.dark .karta,
+    body.dark .seksioni {
+      background: #1f2937;
+      color: #f9fafb;
+    }
+
+    @media (max-width: 650px) {
+      .kartat {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 30px;
+      }
     }
   </style>
 </head>
 
 <body>
-  <main>
-    <h1>My First Cloud Page</h1>
+  <main class="faqja">
+    <header>
+      <p>☁️ Laboratori im i Teknologjisë Cloud</p>
+      <h1>Përshëndetje nga faqja ime!</h1>
+      <p>Kjo faqe është publikuar në internet me GitHub Pages.</p>
 
-    <p>Student: shkruaj pseudonimin ose inicialet</p>
-    <p>Course: Cloud Technology</p>
-    <p>My cloud application idea: shkruaj një ide të shkurtër</p>
+      <button class="buton" onclick="ndryshoPamjen()">
+        Ndrysho pamjen
+      </button>
+    </header>
 
-    <button onclick="document.getElementById('message').textContent =
-      'It works!'">
-      Test the page
-    </button>
+    <h2>Çfarë mund të ofrojë Cloud-i?</h2>
 
-    <p id="message"></p>
+    <section class="kartat">
+      <article class="karta">
+        <div class="ikona">🖥️</div>
+        <h3>Compute</h3>
+        <p>Ekzekutimi i aplikacioneve dhe programeve në kompjuterë të largët.</p>
+      </article>
+
+      <article class="karta">
+        <div class="ikona">💾</div>
+        <h3>Storage</h3>
+        <p>Ruajtja e skedarëve dhe të dhënave në internet.</p>
+      </article>
+
+      <article class="karta">
+        <div class="ikona">🌐</div>
+        <h3>Networking</h3>
+        <p>Lidhja e përdoruesve dhe shërbimeve përmes rrjetit.</p>
+      </article>
+    </section>
+
+    <section class="seksioni">
+      <h2>Çfarë ndodh kur dikush hap faqen?</h2>
+      <p>Kliko butonin për ta parë rrjedhën e thjeshtuar.</p>
+
+      <button class="buton" onclick="shfaqRrjedhen()">
+        Shfaq rrjedhën
+      </button>
+
+      <p id="mesazhi"></p>
+    </section>
   </main>
+
+  <script>
+    function ndryshoPamjen() {
+      document.body.classList.toggle("dark");
+    }
+
+    function shfaqRrjedhen() {
+      document.getElementById("mesazhi").textContent =
+        "1. Vizitori hap adresën e faqes. " +
+        "2. GitHub Pages e gjen skedarin index.html. " +
+        "3. Faqja dërgohet te shfletuesi i vizitorit.";
+    }
+  </script>
 </body>
 </html>
